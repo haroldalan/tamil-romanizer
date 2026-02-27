@@ -1,0 +1,12 @@
+node_modules/
+coverage/
+.vitest/
+
+# Private Dev Notes
+my-plan.md
+my-system-specs.md
+professor-feedback.md
+
+# Operating System Files
+.DS_Store
+Thumbs.db
