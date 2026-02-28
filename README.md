@@ -82,7 +82,7 @@ console.log(text); // "pamparam"
 const strict = romanize("தமிழ்", { scheme: 'iso15919' });
 console.log(strict); // "tamiḻ"
 ```
-*(Also supports `ala-lc` schema via `{ scheme: 'alalc' }`)*
+*(Also supports `ala-lc` schema via `{ scheme: 'ala-lc' }`)*
 
 ### 3. Turning off the Exception Dictionary
 
@@ -115,7 +115,7 @@ console.log(romanize(mixed));
 
 | Option | Type | Default | Description |
 |---|---|---|---|
-| `scheme` | `'practical' \| 'iso15919' \| 'alalc'` | `'practical'` | Determines the transliteration ruleset. |
+| `scheme` | `'practical' \| 'iso15919' \| 'ala-lc'` | `'practical'` | Determines the transliteration ruleset. |
 | `exceptions` | `boolean` | `true` | Enables/disables the internal dictionary for loan words. |
 | `capitalize` | `'none' \| 'sentence' \| 'words'` | `'none'` | Controls the casing of the returned string. |
 
