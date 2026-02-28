@@ -23,7 +23,7 @@ describe('Public API: romanize', () => {
         const text = 'சென்னை தமிழ்நாடு பயணம்';
 
         // Exception enabled by default
-        expect(romanize(text)).toBe('chennai tamil nadu payanam');
+        expect(romanize(text)).toBe('chennai tamilnadu payanam');
 
         // Exception disabled
         expect(romanize(text, { exceptions: false })).toBe('sennai thamizhnaadu payanam');

@@ -6,6 +6,7 @@ export const contextTags = {
     GEMINATE: 'GEMINATE',
     POST_NASAL: 'POST_NASAL',
     INTERVOCALIC: 'INTERVOCALIC',
+    FRICATIVE_MUTATED: 'FRICATIVE_MUTATED',
     WORD_FINAL: 'WORD_FINAL',
     DEFAULT: 'DEFAULT'
 };
@@ -48,10 +49,12 @@ export function analyzeContext(tokens) {
 
             // Determine word boundaries.
             // A token is word initial if it's the very first token in the string, 
-            // OR if the previous token was a space/punctuation (OTHER).
-            const isWordInitial = index === 0 || (prevToken && prevToken.type === tokenTypes.OTHER);
+            // OR if the previous token was a space/punctuation
+            const isWordInitial = index === 0 ||
+                (prevToken && (prevToken.type === tokenTypes.WHITESPACE || prevToken.type === tokenTypes.PUNCTUATION || prevToken.type === tokenTypes.OTHER));
 
-            const isWordFinal = index === tokens.length - 1 || (nextToken && nextToken.type === tokenTypes.OTHER);
+            const isWordFinal = index === tokens.length - 1 ||
+                (nextToken && (nextToken.type === tokenTypes.WHITESPACE || nextToken.type === tokenTypes.PUNCTUATION || nextToken.type === tokenTypes.OTHER));
 
             if (isWordInitial) {
                 tag = contextTags.WORD_INITIAL;
@@ -69,11 +72,15 @@ export function analyzeContext(tokens) {
                 else if (prevToken && prevToken.modifierType === modifierTypes.VIRAMA && nasals.includes(prevToken.base)) {
                     tag = contextTags.POST_NASAL;
                 }
-                // 3. INTERVOCALIC: Preceding cluster holds a vowel, and current cluster holds a vowel.
-                else if (carriesVowel(prevToken) && carriesVowel(token)) {
+                // 3. FRICATIVE_MUTATED: Immediately preceded by an AYTHAM token (ஃ) AND current base is ப or ஜ
+                else if (prevToken && prevToken.type === tokenTypes.AYTHAM && (token.base === 'ப' || token.base === 'ஜ')) {
+                    tag = contextTags.FRICATIVE_MUTATED;
+                }
+                // 4. INTERVOCALIC: Preceding cluster holds a vowel AND current cluster's modifier is not VIRAMA
+                else if (carriesVowel(prevToken) && token.modifierType !== modifierTypes.VIRAMA) {
                     tag = contextTags.INTERVOCALIC;
                 }
-                // 4. WORD_FINAL: Last cluster in a word
+                // 5. WORD_FINAL: Last cluster in a word
                 else if (isWordFinal) {
                     tag = contextTags.WORD_FINAL;
                 }

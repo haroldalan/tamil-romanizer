@@ -46,28 +46,51 @@ export function romanize(text, options = {}) {
     const cleanText = sanitize(text);
     if (!cleanText) return '';
 
-    let outputWords = [];
-    // Tokenize by spaces to apply whole-word Exception Trie natively
-    const words = cleanText.split(/(\s+)/);
+    // Tokenize the ENTIRE string first. This fixes punctuation and spaces breaking the Trie.
+    const allTokens = tokenize(cleanText);
 
-    for (const word of words) {
-        if (!word.trim()) {
-            outputWords.push({ text: word, isException: false });
+    // We group tokens into "words" bounded by whitespace and punctuation.
+    // E.g., "சென்னை," -> word chunk: "சென்னை", punctuation chunk: ","
+    const chunks = [];
+    let currentChunk = [];
+
+    for (const token of allTokens) {
+        if (token.type === 'whitespace' || token.type === 'punctuation' || token.type === 'other') {
+            if (currentChunk.length > 0) {
+                chunks.push({ type: 'word', tokens: currentChunk });
+                currentChunk = [];
+            }
+            chunks.push({ type: 'separator', tokens: [token] });
+        } else {
+            currentChunk.push(token);
+        }
+    }
+    if (currentChunk.length > 0) {
+        chunks.push({ type: 'word', tokens: currentChunk });
+    }
+
+    let outputWords = [];
+
+    for (const chunk of chunks) {
+        if (chunk.type === 'separator') {
+            outputWords.push({ text: chunk.tokens[0].text, isException: false });
             continue;
         }
 
-        // Step 2. Exception Trie Intercept
+        // Reconstruct the raw text of the Tamil word for Trie lookup
+        const wordText = chunk.tokens.map(t => t.text).join('');
+
+        // Step 2. Exception Trie Intercept (Right after Layer 1 chunking)
         if (exceptions) {
-            const hardMatch = exceptionDictionary.lookup(word);
+            const hardMatch = exceptionDictionary.lookup(wordText);
             if (hardMatch) {
                 outputWords.push({ text: hardMatch, isException: true });
-                continue;
+                continue; // Bypass Layers 2-5 for this chunk completely
             }
         }
 
-        // Pipeline Execution
-        const tokens = tokenize(word);
-        const decomposed = decompose(tokens);
+        // Pipeline Execution for non-exception clusters
+        const decomposed = decompose(chunk.tokens);
         const analyzed = analyzeContext(decomposed);
         const resolved = resolveScheme(analyzed, scheme, table);
         const finalizedWord = handleSpecialTokens(resolved, scheme);
