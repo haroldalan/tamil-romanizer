@@ -82,7 +82,7 @@ console.log(text); // "pamparam"
 const strict = romanize("தமிழ்", { scheme: 'iso15919' });
 console.log(strict); // "tamiḻ"
 ```
-*(Also supports `ala-lc` schema via `{ scheme: 'ala-lc' }`)*
+*(Also supports `ala-lc` schema via `{ scheme: 'alalc' }`)*
 
 ### 3. Turning off the Exception Dictionary
 
