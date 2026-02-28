@@ -10,7 +10,7 @@ It is fast, rigorously tested (100% ISO compliance), and built for real-world te
 
 ## Live Demo
 
-Try the engine instantly in your browser: [**Tamil Romanizer Live Demo**](https://haroldalan.github.io/tamil-romanizer/docs)
+Try the engine instantly in your browser: [**Tamil Romanizer Live Demo**](https://haroldalan.github.io/tamil-romanizer/)
 
 ![Demo GIF](./assets/demo.gif)
 
