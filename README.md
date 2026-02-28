@@ -115,7 +115,7 @@ console.log(romanize(mixed));
 
 | Option | Type | Default | Description |
 |---|---|---|---|
-| `scheme` | `'practical' \| 'iso15919' \| 'ala-lc'` | `'practical'` | Determines the transliteration ruleset. |
+| `scheme` | `'practical' \| 'iso15919' \| 'alalc'` | `'practical'` | Determines the transliteration ruleset. |
 | `exceptions` | `boolean` | `true` | Enables/disables the internal dictionary for loan words. |
 | `capitalize` | `'none' \| 'sentence' \| 'words'` | `'none'` | Controls the casing of the returned string. |
 
