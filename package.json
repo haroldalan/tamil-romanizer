@@ -1,7 +1,7 @@
 {
     "name": "tamil-romanizer",
-    "version": "1.0.0",
-    "description": "Tamil Romanization Engine v1.0",
+    "version": "1.0.1",
+    "description": "A robust, context-aware rule-based Tamil-to-English romanization library",
     "main": "index.js",
     "type": "module",
     "scripts": {
@@ -9,8 +9,18 @@
     },
     "keywords": [
         "tamil",
+        "tamil_extended",
+        "tamil_superscripted",
+        "phonetic",
         "romanizer",
-        "transliteration"
+        "romanization",
+        "transliteration",
+        "indic-scripts",
+        "nlp",
+        "unicode",
+        "iso15919",
+        "ala-lc",
+        "practical"
     ],
     "author": "Harold Alan",
     "license": "ISC",

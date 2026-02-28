@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tamil Romanizer - Demo</title>
+  <script type="module" crossorigin src="./assets/index-DA790-zT.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-m6h5LDXx.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Tamil Romanizer</h1>
+      <p class="subtitle">A context-aware rule-based transliteration engine.</p>
+    </header>
+
+    <main>
+      <div class="controls">
+        <div class="control-group">
+          <label for="scheme-select">Scheme:</label>
+          <select id="scheme-select">
+            <option value="practical">Practical (Tanglish)</option>
+            <option value="iso15919">ISO 15919 (Scholarly)</option>
+            <option value="ala-lc">ALA-LC (Library of Congress)</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="capitalize-select">Capitalization:</label>
+          <select id="capitalize-select">
+            <option value="none">None (Strict lowercase)</option>
+            <option value="sentence">Sentence case</option>
+            <option value="words">Title case</option>
+          </select>
+        </div>
+
+        <div class="control-checkbox">
+          <input type="checkbox" id="exceptions-check" checked />
+          <label for="exceptions-check">Use Exception/Loanword Dictionary</label>
+        </div>
+      </div>
+
+      <div class="io-panels">
+        <div class="panel">
+          <label for="input-text">Tamil Input</label>
+          <textarea id="input-text" placeholder="தமிழ் உரை அல்லது வாக்கியத்தை இங்கே தட்டச்சு செய்யவும்...
+
+Example: 
+சென்னையில் ஒரு கம்ப்யூட்டர் கம்பெனி உள்ளது.
+இந்தியா ஒரு அழகான நாடு."></textarea>
+        </div>
+
+        <div class="panel">
+          <label for="output-text">Romanized Output</label>
+          <textarea id="output-text" readonly placeholder="Output will appear here..."></textarea>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>Built using the `tamil-romanizer` npm package.</p>
+    </footer>
+  </div>
+</body>
+
+</html>

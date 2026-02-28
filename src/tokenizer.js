@@ -5,7 +5,11 @@ export const tokenTypes = {
     CONSONANT_VIRAMA: 'consonant_virama',
     CONSONANT_VOWEL_SIGN: 'consonant_vowel_sign',
     CONSONANT_BARE: 'consonant_bare',
-    OTHER: 'other' // numerals, punctuation, spaces, non-tamil
+    AYTHAM: 'aytham',
+    WHITESPACE: 'whitespace',
+    NUMERAL: 'numeral',
+    PUNCTUATION: 'punctuation',
+    OTHER: 'other' // non-tamil
 };
 
 // Vowels (அ to ஔ) U+0B85 to U+0B94
@@ -29,6 +33,10 @@ const isVowelSign = (char) => {
     return code >= 0x0BBE && code <= 0x0BCD && code !== 0x0BCD; // Exclude virama explicitly
 };
 
+const isWhitespace = (str) => /^\s+$/.test(str);
+const isNumeral = (str) => /^\d+$/.test(str) || /^[\u0BE6-\u0BEF]+$/.test(str); // matches 0-9 and tamil numerals
+const isPunctuation = (str) => /^[.,/#!$%^&*;:{}=\-_`~()""'']+$/.test(str);
+
 /**
  * Tokenizes a sanitized Tamil string into grapheme clusters.
  * 
@@ -43,7 +51,15 @@ export function tokenize(text) {
         let type = tokenTypes.OTHER;
 
         // Check classification based on first character and any modifiers
-        if (segment.length === 1) {
+        if (segment === 'ஃ') {
+            type = tokenTypes.AYTHAM;
+        } else if (isWhitespace(segment)) {
+            type = tokenTypes.WHITESPACE;
+        } else if (isNumeral(segment)) {
+            type = tokenTypes.NUMERAL;
+        } else if (isPunctuation(segment)) {
+            type = tokenTypes.PUNCTUATION;
+        } else if (segment.length === 1) {
             if (isVowel(segment)) {
                 type = tokenTypes.VOWEL;
             } else if (isConsonant(segment)) {

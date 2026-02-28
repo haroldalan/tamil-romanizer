@@ -1,0 +1,29 @@
+==================================================
+   TAMIL ROMANIZER 10K CORPUS STRESS TEST
+==================================================
+
+🚀 Starting Benchmark on: 10K Wikipedia Words
+📂 Total Lines: 42,480
+🔤 Total Characters: 420,524
+
+⏳ Running Scheme: Practical (with dictionary exceptions)...
+✅ Completed in: 1194.47 ms
+⚡ Throughput: 352,060 chars/sec
+
+⏳ Running Scheme: ISO 15919 (strict algorithmic)...
+✅ Completed in: 1129.55 ms
+⚡ Throughput: 372,292 chars/sec
+--------------------------------------------------
+
+🚀 Starting Benchmark on: 10K Wikipedia Sentences
+📂 Total Lines: 10,000
+🔤 Total Characters: 923,353
+
+⏳ Running Scheme: Practical (with dictionary exceptions)...
+✅ Completed in: 1421.67 ms
+⚡ Throughput: 649,484 chars/sec
+
+⏳ Running Scheme: ISO 15919 (strict algorithmic)...
+✅ Completed in: 1342.10 ms
+⚡ Throughput: 687,993 chars/sec
+--------------------------------------------------

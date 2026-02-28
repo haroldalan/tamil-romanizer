@@ -1,16 +1,33 @@
-# Tamil Romanizer (v1.0)
+# tamil-romanizer
 
-A robust, context-aware rule-based Tamil-to-English romanization library.
+A completely context-aware, highly accurate Tamil-to-English romanization library for Node.js and the browser.
 
-Vastly outperforming naive character-replacement scripts, this library implements a **6-Layer pipeline** powered by grapheme cluster tokenization (`Intl.Segmenter`) and phonological context analysis to yield true, phonetic English mappings from dense Tamil text.
+Unlike naive character-replacement scripts that turn `"சிங்கம்"` into `cinkam`, `tamil-romanizer` understands Tamil phonology. It natively handles intervocalic softening, post-nasal voicing, and word-boundaries to produce natural, readable Tanglish (e.g., `"singam"`). 
 
-## Features
+It is fast, rigorously tested (100% ISO compliance), and built for real-world text.
 
-- **Grapheme Accurate:** Handles zero-width joiners, complex modifier stacks, and canonical normalization natively.
-- **Context-Aware Phonology:** Detects word-initial constraints, intervocalic softening, post-nasal transformations, and geminate cluster conditions to output dynamically accurate English syntax (e.g. `ப` maps to `p` or `b` dynamically depending on cross-word sandhi context).
-- **Multiple Mapping Schemes:** Natively supports intelligent `practical` syntax (Tanglish/casual phonetic usage) and strict `iso15919` formalized transliteration.
-- **Exception Trie Routing:** Intercepts proper nouns and anglicized loan words prior to phonological transcription.
-- **Foreign-Script Safe:** Can safely ingest paragraphs containing English, Japanese, or other Unicode blocks, surgically romanizing only the Tamil tokens while passing non-Tamil text safely through.
+---
+
+## Live Demo
+
+Try the engine instantly in your browser: [**Tamil Romanizer Live Demo**](https://haroldalan.github.io/tamil-romanizer/docs)
+
+![Demo GIF](./assets/demo.gif)
+
+---
+
+## Why this library?
+
+Most Tamil transliteration tools fail because they treat the language as a 1-to-1 character map. Tamil doesn't work that way. `tamil-romanizer` analyzes the context of every letter:
+
+| Tamil Input | Naive approach | `tamil-romanizer` | Why? |
+|-------------|----------------|-------------------|------|
+| **ப**ம்பரம் | **p**am**p**aram | **p**am**b**aram | Identifies word-initial `p` vs post-nasal `b` |
+| ச**ட்ட**ம் | sa**t**am | sa**tt**am | Detects geminate (double) consonant clusters |
+| **ஞா**னம் | **ny**anam | **gn**anam | Uses practical Tanglish conventions for word-initials |
+| **ஃ**பேன் | **ak**paen | **f**an | Analyzes Aytham lookaheads and cross-references an internal proper-noun dictionary |
+
+---
 
 ## Installation
 
@@ -18,46 +35,89 @@ Vastly outperforming naive character-replacement scripts, this library implement
 npm install tamil-romanizer
 ```
 
-## Usage
+---
 
+## Quick Start
 ```javascript
 import { romanize } from 'tamil-romanizer';
 
-// Basic Transliteration
-console.log(romanize("தமிழ்")); // "thamizh"
+// 1. Basic usage maps to highly accurate practical phonetics
+const text = romanize("தமிழ்நாடு");
+console.log(text); // "tamilnadu" (detected via built-in dictionary)
 
-// Practical Phonics (Contextual Mapping)
-console.log(romanize("பம்பரம்")); // "pambaram" (Initial P, Post-Nasal B)
-console.log(romanize("சிங்கம்")); // "singam"
-
-// Capitalization Support
-console.log(romanize("சென்னை பயணம்", { capitalize: 'sentence' })); // "Chennai payanam"
-
-// Strict ISO 15919 Syntax
-console.log(romanize("தமிழ்நாடு", { scheme: 'iso15919' })); // "tamiḻnāṭu"
+const text2 = romanize("பம்பரம்");
+console.log(text2); // "pambaram" (context-aware mapping)
 ```
 
-## API Options
-You can adjust parsing behavior globally via a config block on `romanize(text, options)`.
+## Advanced Options
 
-* **scheme**: Target rules (`'practical'` default, `'iso15919'`, or `'ala-lc'`)
-* **exceptions**: Boolean enabling exception lookups (defaults `true`)
-* **capitalize**: Output casing rule (`'none'`, `'words'`, `'sentence'`). *Note: `none` enforces strict lowercase even for proper noun dictionary inputs.*
+Provide an `options` object as the second argument to control the output format, scheme, or dictionary usage.
 
-## Architecture
+### 1. Capitalization Formatting
 
-1. **Sanitizer:** NFC normalization & format-character stripping.
-2. **Cluster Tokenizer:** Uses `Intl.Segmenter` to split graphemes accurately.
-3. **Decomposer:** Maps bases and vowel modifiers distinctively.
-4. **Context Analyzer:** Positional tagging (Word Initial, Intervocalic, Geminate, Post-Nasal).
-5. **Scheme Resolver:** Base lookup to targeted transliteration schema (`iso15919`, `practical`, `ala-lc`).
-6. **Special Token Handler:** Cross-cluster constraints (Aytham lookaheads, Grantha sequence transformations).
-7. **Exception Trie:** Fast dictionary overrides.
+Romanize targets English letters (which have case), while Tamil does not. You can enforce casing rules natively:
 
-## Testing & Reliability
-This library was built with mathematical rigour, achieving > 98% test coverage via `vitest`.
-* **ISO 15919 Benchmark:** Achieves 100% Character Error Rate (CER) exact-match compliance against the official specification.
-* **Stress Testing:** A built-in CLI is available to test arbitrary text locally:
-  1. Paste text into `test/stress/input.txt`
-  2. Run `node test/stress/evaluate.js`
+```javascript
+const sentence = "சென்னை ஒரு அழகான நகரம்";
 
+console.log(romanize(sentence)); 
+// "chennai oru azhagana nagaram" (Default: 'none' - strict lowercase)
+
+console.log(romanize(sentence, { capitalize: 'sentence' })); 
+// "Chennai oru azhagana nagaram"
+
+console.log(romanize(sentence, { capitalize: 'words' })); 
+// "Chennai Oru Azhagana Nagaram"
+```
+
+### 2. Scholarly Translating (ISO 15919)
+
+If you are building an academic tool or require strict, lossless character-level transliteration, use the `iso15919` scheme.
+
+```javascript
+// ISO 15919 enforces direct diacritic mapping without contextual softening
+const text = romanize("பம்பரம்", { scheme: 'iso15919', exceptions: false });
+console.log(text); // "pamparam"
+
+const strict = romanize("தமிழ்", { scheme: 'iso15919' });
+console.log(strict); // "tamiḻ"
+```
+*(Also supports `ala-lc` schema via `{ scheme: 'ala-lc' }`)*
+
+### 3. Turning off the Exception Dictionary
+
+The library ships with a fast exception trie that automatically corrects common loan words and proper nouns (e.g. `பஸ்` -> `bus`, `சென்னை` -> `Chennai`). 
+
+If you want the raw, algorithmic output of the underlying state machine, disable the `exceptions` flag:
+
+```javascript
+// With dictionary (Default)
+romanize("பஸ்"); // "bus"
+
+// Algorithmic output
+romanize("பஸ்", { exceptions: false }); // "bas"
+```
+
+## Mixed-language Safe
+
+Don't worry about sanitizing your inputs. If you pass a string containing English, numbers, emojis, or punctuation, `tamil-romanizer` surgically transliterates *only* the Tamil characters and leaves everything else perfectly intact.
+
+```javascript
+const mixed = "The ticket price is ௫௦௦ rupees (ரூபாய்) 🤯!";
+console.log(romanize(mixed)); 
+// "The ticket price is 500 rupees (roobaay) 🤯!"
+```
+*(Notice how it also safely converts native Tamil numerals natively!)*
+
+## API Reference
+
+`romanize(text: string, options?: Object) => string`
+
+| Option | Type | Default | Description |
+|---|---|---|---|
+| `scheme` | `'practical' \| 'iso15919' \| 'ala-lc'` | `'practical'` | Determines the transliteration ruleset. |
+| `exceptions` | `boolean` | `true` | Enables/disables the internal dictionary for loan words. |
+| `capitalize` | `'none' \| 'sentence' \| 'words'` | `'none'` | Controls the casing of the returned string. |
+
+---
+*Built for Tamil by Harold Alan.*

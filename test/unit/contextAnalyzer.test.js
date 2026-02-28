@@ -15,7 +15,7 @@ describe('Layer 3: Context Analyzer', () => {
         expect(tokens[2].base).toBe('ச');
         expect(tokens[2].contextTag).toBe(contextTags.WORD_FINAL); // end of 'வாட்ச்'
 
-        expect(tokens[3].type).toBe('other'); // The space
+        expect(tokens[3].type).toBe('whitespace'); // The space
 
         expect(tokens[4].base).toBe('ச');
         expect(tokens[4].contextTag).toBe(contextTags.WORD_INITIAL); // Start of 'சத்தம்', MUST NOT BE GEMINATE

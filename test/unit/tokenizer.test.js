@@ -52,17 +52,19 @@ describe('Layer 1: Tokenizer Exhaustive 247 Output', () => {
         const tokens = tokenize('ஃ');
         expect(tokens.length).toBe(1);
         expect(tokens[0].text).toBe('ஃ');
-        expect(tokens[0].type).toBe(tokenTypes.OTHER); // Safe passthrough for Layer 5
+        expect(tokens[0].type).toBe(tokenTypes.AYTHAM);
     });
 
-    test('handles spaces and English characters gracefully', () => {
+    test('handles spaces, numerals, and English characters gracefully', () => {
         const tokens = tokenize('தமிழ் Tamil 123');
         const expectedTypes = [
             tokenTypes.CONSONANT_BARE,
             tokenTypes.CONSONANT_VOWEL_SIGN,
             tokenTypes.CONSONANT_VIRAMA,
-            tokenTypes.OTHER, tokenTypes.OTHER, tokenTypes.OTHER, tokenTypes.OTHER, tokenTypes.OTHER, tokenTypes.OTHER,
-            tokenTypes.OTHER, tokenTypes.OTHER, tokenTypes.OTHER, tokenTypes.OTHER
+            tokenTypes.WHITESPACE,
+            tokenTypes.OTHER, tokenTypes.OTHER, tokenTypes.OTHER, tokenTypes.OTHER, tokenTypes.OTHER, // Tamil
+            tokenTypes.WHITESPACE,
+            tokenTypes.NUMERAL, tokenTypes.NUMERAL, tokenTypes.NUMERAL // 123
         ];
 
         expect(tokens.length).toBe(expectedTypes.length);

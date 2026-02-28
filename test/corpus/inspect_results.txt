@@ -1,0 +1,124 @@
+
+📚 Total sentences in corpus: 10,000
+🔍 Inspecting 20 random samples...
+
+[36m--- Sample 1 (Line 2632) ---[0m
+[33mOriginal:[0m இந்தக் கல்லூரி மாவட்டக் கழகத்தின் கட்டுப்பாட்டில் இருந்துவந்தது.
+[32mTanglish:[0m indhak kalloori maavattak kazhagatthin kattuppaattil irundhuvandhadu.
+[34mISO 15919:[0m intak kallūri māvaṭṭak kaḻakattiṉ kaṭṭuppāṭṭil iruntuvantatu.
+[90mTime taken: 3.982ms[0m
+
+[36m--- Sample 2 (Line 6310) ---[0m
+[33mOriginal:[0m சேர்ந்தவர் என்றும் கூறியிருந்தார்.
+[32mTanglish:[0m saerndhavar endrum kooriyirundhaar.
+[34mISO 15919:[0m cērntavar eṉṟum kūṟiyiruntār.
+[90mTime taken: 0.377ms[0m
+
+[36m--- Sample 3 (Line 7703) ---[0m
+[33mOriginal:[0m பாரம்பரியமாக பிளம்பேட்டு(IV) உப்பு பொதுவாக பிளம்பேட்டு என்றும் பிளம்பேட்டு(II) உப்பு பிளம்பைட்டு என்றும் அழைக்கப்பட்டு வந்தது.
+[32mTanglish:[0m paarambariyamaaga pilambaettu(iv) uppu poduvaaga pilambaettu endrum pilambaettu(ii) uppu pilambaittu endrum azhaikkappattu vandhadu.
+[34mISO 15919:[0m pārampariyamāka piḷampēṭṭu(iv) uppu potuvāka piḷampēṭṭu eṉṟum piḷampēṭṭu(ii) uppu piḷampaiṭṭu eṉṟum aḻaikkappaṭṭu vantatu.
+[90mTime taken: 0.553ms[0m
+
+[36m--- Sample 4 (Line 7585) ---[0m
+[33mOriginal:[0m பலிச்சோறு உண்ணும் காக்கை, வெற்றியடையும் போரைச் செய்யும் சோழருடைய 'கழார்' என்னும் ஊரில் மாசற்ற மரத்திலுள்ள காற்று மோதும் நெடிய கிளையில் அமர்ந்து மழைத்துளியில் அசைந்து கொண்டிருக்கும்.
+[32mTanglish:[0m palichchoaru unnum kaakkai, vetriyadaiyum poarais seyyum soazharudaiya 'kazhaar' ennum ooril maasatra maratthilulla kaatru moadum nediya kilaiyil amarndhu mazhaitthuliyil asaindhu kondirukkum.
+[34mISO 15919:[0m paliccōṟu uṇṇum kākkai, veṟṟiyaṭaiyum pōraic ceyyum cōḻaruṭaiya 'kaḻār' eṉṉum ūril mācaṟṟa marattiluḷḷa kāṟṟu mōtum neṭiya kiḷaiyil amarntu maḻaittuḷiyil acaintu koṇṭirukkum.
+[90mTime taken: 1.002ms[0m
+
+[36m--- Sample 5 (Line 2912) ---[0m
+[33mOriginal:[0m இந்த வேதாந்த பாசுர ஏடுகளில் சில (இந்துக்கள் தினசரி செய்யும் வழக்கமான கடமையான) நித்ய விதியுடன் ஒருங்கிணைந்துள்ளது.
+[32mTanglish:[0m indha vaedaandha paasura aedugalil sila (indhukkal thinasari seyyum vazhakkamaana kadamaiyaana) nithya vidiyudan orunginaindhulladu.
+[34mISO 15919:[0m inta vētānta pācura ēṭukaḷil cila (intukkaḷ tiṉacari ceyyum vaḻakkamāṉa kaṭamaiyāṉa) nitya vitiyuṭaṉ oruṅkiṇaintuḷḷatu.
+[90mTime taken: 0.469ms[0m
+
+[36m--- Sample 6 (Line 6359) ---[0m
+[33mOriginal:[0m டச்சுக்காரர்கள் மலாக்காவில் பல ஆலயங்கள், பள்ளிக்கூடங்கள், பொது மண்டபங்களைக் கட்டி உள்ளனர்.
+[32mTanglish:[0m tachchukkaararkal malaakkaavil pala aalayangal, pallikkoodangal, podu mandabangalaik katti ullanar.
+[34mISO 15919:[0m ṭaccukkārarkaḷ malākkāvil pala ālayaṅkaḷ, paḷḷikkūṭaṅkaḷ, potu maṇṭapaṅkaḷaik kaṭṭi uḷḷaṉar.
+[90mTime taken: 0.598ms[0m
+
+[36m--- Sample 7 (Line 8666) ---[0m
+[33mOriginal:[0m மஹதி (பிறப்பு: 10 பிப்ரவரி 1985) தமிழகத்தைச் சேர்ந்த கருநாடக இசைப் பாடகர் ஆவார்.
+[32mTanglish:[0m mahadi (pirappu: 10 pipravari 1985) thamizhagatthais saerndha karunaadaga isaip paadagar aavaar.
+[34mISO 15919:[0m mahati (piṟappu: 10 pipravari 1985) tamiḻakattaic cērnta karunāṭaka icaip pāṭakar āvār.
+[90mTime taken: 0.699ms[0m
+
+[36m--- Sample 8 (Line 2386) ---[0m
+[33mOriginal:[0m இது வழக்கமான விலையை விட 5 மடங்கு அதிகமாகும்.
+[32mTanglish:[0m idu vazhakkamaana vilaiyai vida 5 madangu adigamaagum.
+[34mISO 15919:[0m itu vaḻakkamāṉa vilaiyai viṭa 5 maṭaṅku atikamākum.
+[90mTime taken: 0.514ms[0m
+
+[36m--- Sample 9 (Line 7575) ---[0m
+[33mOriginal:[0m பல மேற்குலக அரசியல் அறிஞர்களின் கருத்துப்படி கிரேக்க நாட்டின் அரசியல் கோட்பாடுகளில் இருந்தும் செயற்பாடுகளில் இருந்தும் அரசியல் விடுதலை என்னும் கருத்து உருவானது.
+[32mTanglish:[0m pala maerkulaga arasiyal arinarkalin karutthuppadi kiraekka naattin arasiyal koatpaadugalil irundhum seyarpaadugalil irundhum arasiyal vidudalai ennum karutthu uruvaanadu.
+[34mISO 15919:[0m pala mēṟkulaka araciyal aṟiñarkaḷiṉ karuttuppaṭi kirēkka nāṭṭiṉ araciyal kōṭpāṭukaḷil iruntum ceyaṟpāṭukaḷil iruntum araciyal viṭutalai eṉṉum karuttu uruvāṉatu.
+[90mTime taken: 1.291ms[0m
+
+[36m--- Sample 10 (Line 761) ---[0m
+[33mOriginal:[0m அலோர் காஜா மாவட்டத்தின் நிர்வாக அலுவலகங்கள் அனைத்தும் அலோர் காஜா நகரில் உள்ளன.
+[32mTanglish:[0m aloar kaajaa maavattatthin nirvaaga aluvalagangal anaitthum aloar kaajaa nagaril ullana.
+[34mISO 15919:[0m alōr kājā māvaṭṭattiṉ nirvāka aluvalakaṅkaḷ aṉaittum alōr kājā nakaril uḷḷaṉa.
+[90mTime taken: 0.642ms[0m
+
+[36m--- Sample 11 (Line 8221) ---[0m
+[33mOriginal:[0m பொங்கல் பானை வைக்கும்போது அதில் புது மஞ்சள்கொத்தினை கட்டி அதனை எடுத்து முதிய தீர்க்க சுமங்கலிகள் ஐவர் கையில் கொடுத்து ஆசி பெற்று அதனை கல்லில் இழைத்து பாதத்தில் முகத்தில் பூசிக்கொள்வார்கள்.
+[32mTanglish:[0m pongal paanai vaikkumboadu adil pudu manjalkotthinai katti adanai edutthu mudiya theerkka sumangaligal aivar kaiyil kodutthu aasi petru adanai kallil izhaitthu paadatthil mugatthil poosikkolvaarkal.
+[34mISO 15919:[0m poṅkal pāṉai vaikkumpōtu atil putu mañcaḷkottiṉai kaṭṭi ataṉai eṭuttu mutiya tīrkka cumaṅkalikaḷ aivar kaiyil koṭuttu āci peṟṟu ataṉai kallil iḻaittu pātattil mukattil pūcikkoḷvārkaḷ.
+[90mTime taken: 1.698ms[0m
+
+[36m--- Sample 12 (Line 2825) ---[0m
+[33mOriginal:[0m இந்த மண்டல அவை பன்னாட்டுப் போட்டிகள், நிகழ்வுகள், பயிற்றுனர் வகுப்புகள், நடுவர் கல்வி, இளைஞர் வளர்ச்சி/பயிற்சி, பள்ளிகளில் துடுப்பாட்ட வளர்ச்சி, நிர்வாக மேம்பாடு, சந்தைப்படுத்துதல் போன்றவற்றை கண்காணித்து வருகிறது.
+[32mTanglish:[0m indha mandala avai pannaattup poattigal, nigazhvugal, payitrunar vaguppugal, naduvar kalvi, ilainar valarchchi/payirsi, palligalil thuduppaatta valarchchi, nirvaaga maembaadu, sandhaippadutthudal poandravatrai kangaanitthu varugiradu.
+[34mISO 15919:[0m inta maṇṭala avai paṉṉāṭṭup pōṭṭikaḷ, nikaḻvukaḷ, payiṟṟuṉar vakuppukaḷ, naṭuvar kalvi, iḷaiñar vaḷarcci/payiṟci, paḷḷikaḷil tuṭuppāṭṭa vaḷarcci, nirvāka mēmpāṭu, cantaippaṭuttutal pōṉṟavaṟṟai kaṇkāṇittu varukiṟatu.
+[90mTime taken: 1.526ms[0m
+
+[36m--- Sample 13 (Line 8414) ---[0m
+[33mOriginal:[0m மக்கள்தொகையில் இவர்கள் 38% ஆகும்.
+[32mTanglish:[0m makkalthogaiyil ivarkal 38% aagum.
+[34mISO 15919:[0m makkaḷtokaiyil ivarkaḷ 38% ākum.
+[90mTime taken: 1.176ms[0m
+
+[36m--- Sample 14 (Line 9025) ---[0m
+[33mOriginal:[0m முன்பு காலத்தில் ரப்பர் தோட்டங்களுடன் வளர்ச்சி கண்ட துரோலாக், பின்னர் எண்ணெய்ப் பனை தோட்டங்களுடன் மாற்றம் கண்டது.
+[32mTanglish:[0m munbu kaalatthil rappar thoattangaludan valarchchi kanda thuroalaak, pinnar enneyp panai thoattangaludan maatram kandadu.
+[34mISO 15919:[0m muṉpu kālattil rappar tōṭṭaṅkaḷuṭaṉ vaḷarcci kaṇṭa turōlāk, piṉṉar eṇṇeyp paṉai tōṭṭaṅkaḷuṭaṉ māṟṟam kaṇṭatu.
+[90mTime taken: 0.619ms[0m
+
+[36m--- Sample 15 (Line 7092) ---[0m
+[33mOriginal:[0m நாட்டில் மக்கள் மற்றும் இடங்களின் பெயர்களை "ஆபிரிக்கனைசிங்"(ஆபிரிக்கப்பெயர்களைச் சூட்டுவது) செய்யும் கொள்கையை இவர் ஆரம்பித்தார்.
+[32mTanglish:[0m naattil makkal matrum idangalin peyarkalai "aabirikkanaisin"(aabirikkappeyarkalais soottuvadu) seyyum kolkaiyai ivar aarambitthaar.
+[34mISO 15919:[0m nāṭṭil makkaḷ maṟṟum iṭaṅkaḷiṉ peyarkaḷai "āpirikkaṉaiciṅ"(āpirikkappeyarkaḷaic cūṭṭuvatu) ceyyum koḷkaiyai ivar ārampittār.
+[90mTime taken: 0.586ms[0m
+
+[36m--- Sample 16 (Line 1766) ---[0m
+[33mOriginal:[0m இணையாக பல நகைச்சுவை பாத்திரங்களில் நடித்தார்.
+[32mTanglish:[0m inaiyaaga pala nagaichchuvai paatthirangalil naditthaar.
+[34mISO 15919:[0m iṇaiyāka pala nakaiccuvai pāttiraṅkaḷil naṭittār.
+[90mTime taken: 0.310ms[0m
+
+[36m--- Sample 17 (Line 4502) ---[0m
+[33mOriginal:[0m எனவே இது மூன்றாம் வேற்றுமை.
+[32mTanglish:[0m enavae idu moondraam vaetrumai.
+[34mISO 15919:[0m eṉavē itu mūṉṟām vēṟṟumai.
+[90mTime taken: 0.222ms[0m
+
+[36m--- Sample 18 (Line 8227) ---[0m
+[33mOriginal:[0m பொதுநலவாயத்தின் அண்டை நாடுகளான உருசிய பேரரசாலும் பிரிசிய பேரரசாலும் அப்சுபர்க் அரசாலும் இது மூன்றாக பிரிக்கப்பட்டு 1795ல் பொதுநலவாயம் முற்றாக இல்லாமல் செய்யப்பட்டது.
+[32mTanglish:[0m podunalavaayatthin andai naadugalaana urusiya paerarasaalum pirisiya paerarasaalum apsubark arasaalum idu moondraaga pirikkappattu 1795l podunalavaayam mutraaga illaamal seyyappattadu.
+[34mISO 15919:[0m potunalavāyattiṉ aṇṭai nāṭukaḷāṉa uruciya pēraracālum piriciya pēraracālum apcupark aracālum itu mūṉṟāka pirikkappaṭṭu 1795l potunalavāyam muṟṟāka illāmal ceyyappaṭṭatu.
+[90mTime taken: 0.759ms[0m
+
+[36m--- Sample 19 (Line 1195) ---[0m
+[33mOriginal:[0m ஆக்சிசன் கூடாரங்கள் ஒருகாலத்தில் பயன்படுத்தப்பட்டன; தற்காலத்தில் பெரும்பாலும் ஆக்சிசன் முகமூடிகள் அல்லது மூக்குக் குழாய்கள் பயன்படுத்தப்படுகின்றன.
+[32mTanglish:[0m aaksisan koodaarangal orugaalatthil payanbadutthappattana; tharkaalatthil perumbaalum aaksisan mugamoodigal alladu mookkuk kuzhaaykal payanbadutthappadugindrana.
+[34mISO 15919:[0m ākcicaṉ kūṭāraṅkaḷ orukālattil payaṉpaṭuttappaṭṭaṉa; taṟkālattil perumpālum ākcicaṉ mukamūṭikaḷ allatu mūkkuk kuḻāykaḷ payaṉpaṭuttappaṭukiṉṟaṉa.
+[90mTime taken: 0.590ms[0m
+
+[36m--- Sample 20 (Line 9614) ---[0m
+[33mOriginal:[0m வாட்ஸ் அப் நிறுவனத்தை பேஸ்புக் நிறுவனத்தினர் 19.3 பில்லியன் அமெரிக்க டாலர் விலை கொடுத்து கையகப்படுத்தினர்.
+[32mTanglish:[0m vaats ap niruvanatthai paespuk niruvanatthinar 19.3 pilliyan amerikka taalar vilai kodutthu kaiyagappadutthinar.
+[34mISO 15919:[0m vāṭs ap niṟuvaṉattai pēspuk niṟuvaṉattiṉar 19.3 pilliyaṉ amerikka ṭālar vilai koṭuttu kaiyakappaṭuttiṉar.
+[90mTime taken: 0.508ms[0m
+

@@ -22,14 +22,9 @@ export function handleSpecialTokens(resolvedTokens, schemeName = 'practical') {
             const nextToken = resolvedTokens[i + 1];
 
             if (isPractical) {
-                if (nextToken && nextToken.base === 'ப') {
-                    // Replace 'p' or 'b' with 'f' in the next token's romanization
-                    nextToken.romanized = nextToken.romanized.replace(/^[pb]/i, 'f');
-                } else if (nextToken && nextToken.base === 'ஜ') {
-                    // Replace 'j' with 'z' in the next token's romanization
-                    nextToken.romanized = nextToken.romanized.replace(/^j/i, 'z');
-                }
-                // For other cases or standalone 'ஃ', it's omitted in practical scheme, so nothing is added to outputString here.
+                // In practical scheme, the Āytham token itself is dropped silently.
+                // The subsequent base ('ப' or 'ஜ') has already been mutated by Layer 3 + Layer 4 to 'f' or 'z'.
+                // So we do nothing to outputString here.
             } else {
                 // ISO 15919
                 outputString += 'ḵ';
