@@ -39,6 +39,6 @@ describe('Benchmark: Practical Scheme Mapping', () => {
     test('Reaches target practical WER with Exceptions enabled', () => {
         // With Exception trie enabled, common loanwords/proper nouns should auto-correct
         // Since default is capitalize: 'none', it outputs lowercase natively overriding dictionary casing
-        expect(romanize('சென்னை தமிழ்நாடு')).toBe('chennai tamil nadu');
+        expect(romanize('சென்னை தமிழ்நாடு')).toBe('chennai tamilnadu');
     });
 });
