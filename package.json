@@ -1,6 +1,6 @@
 {
     "name": "tamil-romanizer",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A robust, context-aware rule-based Tamil-to-English romanization library",
     "main": "index.js",
     "type": "module",
@@ -22,6 +22,7 @@
         "ala-lc",
         "practical"
     ],
+    "repository": "github:haroldalan/tamil-romanizer",
     "author": "Harold Alan",
     "license": "ISC",
     "files": [
