@@ -8,7 +8,8 @@ const schemes = {
     iso15919,
     practical,
     alaLc,
-    'ala-lc': alaLc
+    'ala-lc': alaLc,
+    'alalc': alaLc
 };
 
 // Maps vowel signs (modifier part of cluster) to their pure vowel equivalent
