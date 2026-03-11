@@ -1,11 +1,22 @@
 {
     "name": "tamil-romanizer",
-    "version": "1.0.2",
+    "version": "2.0.0",
     "description": "A robust, context-aware rule-based Tamil-to-English romanization library",
-    "main": "index.js",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "type": "module",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs",
+            "types": "./dist/index.d.ts"
+        }
+    },
     "scripts": {
-        "test": "vitest run"
+        "build": "tsup",
+        "test": "vitest run",
+        "prepublishOnly": "npm run build && npm test"
     },
     "keywords": [
         "tamil",
@@ -20,21 +31,21 @@
         "unicode",
         "iso15919",
         "ala-lc",
-        "practical"
+        "practical",
+        "itrans"
     ],
     "repository": "github:haroldalan/tamil-romanizer",
     "author": "Harold Alan",
     "license": "ISC",
     "files": [
-        "src",
-        "data",
-        "index.js"
+        "dist",
+        "data"
     ],
-    "exports": {
-        ".": "./index.js"
-    },
     "devDependencies": {
+        "@types/node": "^22.0.0",
         "@vitest/coverage-v8": "^4.0.18",
+        "tsup": "^8.0.0",
+        "typescript": "^5.0.0",
         "vitest": "^4.0.18"
     }
 }

@@ -1,47 +1,386 @@
 {
-    "சென்னை": "Chennai",
-    "தமிழ்நாடு": "Tamilnadu",
-    "கோயம்புத்தூர்": "Coimbatore",
-    "மதுரை": "Madurai",
-    "தஞ்சாவூர்": "Thanjavur",
-    "திருச்சி": "Trichy",
-    "திருச்சிராப்பள்ளி": "Tiruchirappalli",
-    "சேலம்": "Salem",
-    "திருப்பூர்": "Tiruppur",
-    "நெல்லை": "Nellai",
-    "திருநெல்வேலி": "Tirunelveli",
-    "கன்னியாகுமரி": "Kanyakumari",
-    "பெங்களூர்": "Bangalore",
-    "கேரளா": "Kerala",
-    "மும்பை": "Mumbai",
-    "டெல்லி": "Delhi",
-    "கல்கத்தா": "Kolkata",
-    "இந்தியா": "India",
-    "அமெரிக்கா": "America",
-    "லண்டன்": "London",
-    "பஸ்": "bus",
-    "கார்": "car",
-    "லாரி": "lorry",
-    "ரயில்": "rail",
-    "பிளைட்": "flight",
-    "டீ": "tea",
-    "காபி": "coffee",
-    "டிபன்": "tiffin",
-    "ஹோட்டல்": "hotel",
-    "டாக்டர்": "doctor",
-    "போலீஸ்": "police",
-    "ஸ்டேஷன்": "station",
-    "கம்ப்யூட்டர்": "computer",
-    "இன்டர்நெட்": "internet",
-    "வாட்ஸ்அப்": "whatsapp",
-    "பேஸ்புக்": "facebook",
-    "யூடியூப்": "youtube",
-    "சினிமா": "cinema",
-    "டிக்கெட்": "ticket",
-    "ஹீரோ": "hero",
-    "டிவி": "TV",
-    "பேங்க்": "bank",
-    "போன்": "phone",
-    "ஃபேக்டரி": "factory",
-    "ஆபீஸ்": "office"
+    "சென்னை": {
+        "roman": "Chennai",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "தமிழ்நாடு": {
+        "roman": "Tamil Nadu",
+        "romanStem": null,
+        "oblique": "தமிழ்நாட்ட",
+        "forceCasing": false
+    },
+    "கோயம்புத்தூர்": {
+        "roman": "Coimbatore",
+        "romanStem": null,
+        "oblique": "கோயம்புத்தூரத்த",
+        "forceCasing": false
+    },
+    "மதுரை": {
+        "roman": "Madurai",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "தஞ்சாவூர்": {
+        "roman": "Thanjavur",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "திருச்சி": {
+        "roman": "Trichy",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "திருச்சிராப்பள்ளி": {
+        "roman": "Tiruchirappalli",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "சேலம்": {
+        "roman": "Salem",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "திருப்பூர்": {
+        "roman": "Tiruppur",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "நெல்லை": {
+        "roman": "Nellai",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "திருநெல்வேலி": {
+        "roman": "Tirunelveli",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "கன்னியாகுமரி": {
+        "roman": "Kanyakumari",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "பெங்களூர்": {
+        "roman": "Bangalore",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "கேரளா": {
+        "roman": "Kerala",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "மும்பை": {
+        "roman": "Mumbai",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "டெல்லி": {
+        "roman": "Delhi",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "கல்கத்தா": {
+        "roman": "Kolkata",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "இந்தியா": {
+        "roman": "India",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "அமெரிக்கா": {
+        "roman": "America",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "லண்டன்": {
+        "roman": "London",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "வேலூர்": {
+        "roman": "Vellore",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "ஈரோடு": {
+        "roman": "Erode",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "கடலூர்": {
+        "roman": "Cuddalore",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "தூத்துக்குடி": {
+        "roman": "Thoothukudi",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "விழுப்புரம்": {
+        "roman": "Villupuram",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "திண்டுக்கல்": {
+        "roman": "Dindigul",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "இலங்கை": {
+        "roman": "Sri Lanka",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "சிங்கப்பூர்": {
+        "roman": "Singapore",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "மலேசியா": {
+        "roman": "Malaysia",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "இங்கிலாந்து": {
+        "roman": "England",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "பஸ்": {
+        "roman": "bus",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "கார்": {
+        "roman": "car",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "லாரி": {
+        "roman": "lorry",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "ரயில்": {
+        "roman": "rail",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "பிளைட்": {
+        "roman": "flight",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "டீ": {
+        "roman": "tea",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "காபி": {
+        "roman": "coffee",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "டிபன்": {
+        "roman": "tiffin",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "ஹோட்டல்": {
+        "roman": "hotel",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "டாக்டர்": {
+        "roman": "doctor",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "போலீஸ்": {
+        "roman": "police",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "ஸ்டேஷன்": {
+        "roman": "station",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "கம்ப்யூட்டர்": {
+        "roman": "computer",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "இன்டர்நெட்": {
+        "roman": "internet",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "வாட்ஸ்அப்": {
+        "roman": "WhatsApp",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": true
+    },
+    "பேஸ்புக்": {
+        "roman": "Facebook",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": true
+    },
+    "யூடியூப்": {
+        "roman": "YouTube",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": true
+    },
+    "சினிமா": {
+        "roman": "cinema",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "டிக்கெட்": {
+        "roman": "ticket",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "ஹீரோ": {
+        "roman": "hero",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "டிவி": {
+        "roman": "TV",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": true
+    },
+    "பேங்க்": {
+        "roman": "bank",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "போன்": {
+        "roman": "phone",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "ஃபேக்டரி": {
+        "roman": "factory",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "ஆபீஸ்": {
+        "roman": "office",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "ஐ.போன்": {
+        "roman": "iPhone",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": true
+    },
+    "டி.வி.": {
+        "roman": "TV",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": true
+    },
+    "ஸ்கூல்": {
+        "roman": "school",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "கோலேஜ்": {
+        "roman": "college",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "யூனிவர்சிட்டி": {
+        "roman": "university",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "நர்ஸ்": {
+        "roman": "nurse",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "டிரைவர்": {
+        "roman": "driver",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "இன்ஜினியர்": {
+        "roman": "engineer",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "மேனேஜர்": {
+        "roman": "manager",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    }
 }
