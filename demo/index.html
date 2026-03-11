@@ -4,15 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tamil Romanizer - Demo</title>
+  <title>Tamil Romanizer v2 — Live Demo</title>
+  <meta name="description" content="Context-aware Tamil-to-English romanization. Try all schemes: Practical, ISO 15919, ALA-LC, ITRANS." />
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
   <div class="container">
     <header>
-      <h1>Tamil Romanizer</h1>
-      <p class="subtitle">A context-aware rule-based transliteration engine.</p>
+      <h1>Tamil Romanizer <span class="version-badge">v2.0.0</span></h1>
+      <p class="subtitle">A context-aware, rule-based Tamil transliteration engine with prefix-forward exception trie.</p>
     </header>
 
     <main>
@@ -20,35 +21,43 @@
         <div class="control-group">
           <label for="scheme-select">Scheme:</label>
           <select id="scheme-select">
-            <option value="practical">Practical (Tanglish)</option>
+            <option value="practical">Practical / Standard (Tanglish)</option>
+            <option value="practical/phonetic">Practical / Phonetic (NLP-optimized)</option>
             <option value="iso15919">ISO 15919 (Scholarly)</option>
             <option value="alalc">ALA-LC (Library of Congress)</option>
+            <option value="itrans">ITRANS (South Indian)</option>
           </select>
         </div>
 
         <div class="control-group">
           <label for="capitalize-select">Capitalization:</label>
           <select id="capitalize-select">
-            <option value="none">None (Strict lowercase)</option>
+            <option value="none">None (strict lowercase)</option>
             <option value="sentence">Sentence case</option>
-            <option value="words">Title case</option>
+            <option value="words">Title case (per word)</option>
           </select>
         </div>
 
         <div class="control-checkbox">
           <input type="checkbox" id="exceptions-check" checked />
-          <label for="exceptions-check">Use Exception/Loanword Dictionary</label>
+          <label for="exceptions-check">Use Exception / Proper-noun Dictionary</label>
+        </div>
+
+        <div class="control-checkbox">
+          <input type="checkbox" id="debug-check" />
+          <label for="debug-check">Show debug pipeline</label>
         </div>
       </div>
 
       <div class="io-panels">
         <div class="panel">
           <label for="input-text">Tamil Input</label>
-          <textarea id="input-text" placeholder="தமிழ் உரை அல்லது வாக்கியத்தை இங்கே தட்டச்சு செய்யவும்...
+          <textarea id="input-text" placeholder="தமிழ் உரை இங்கே தட்டச்சு செய்யவும்...
 
-Example: 
+Example:
 சென்னையில் ஒரு கம்ப்யூட்டர் கம்பெனி உள்ளது.
-இந்தியா ஒரு அழகான நாடு."></textarea>
+இந்தியா ஒரு அழகான நாடு.
+பக்ஷி என்பது ஒரு பறவை."></textarea>
         </div>
 
         <div class="panel">
@@ -56,10 +65,15 @@ Example:
           <textarea id="output-text" readonly placeholder="Output will appear here..."></textarea>
         </div>
       </div>
+
+      <div id="debug-panel" class="debug-panel" style="display:none;">
+        <h3>Pipeline Debug View</h3>
+        <pre id="debug-output"></pre>
+      </div>
     </main>
 
     <footer>
-      <p>Built using the `tamil-romanizer` npm package.</p>
+      <p>Built using the <a href="https://www.npmjs.com/package/tamil-romanizer" target="_blank"><code>tamil-romanizer</code></a> npm package &mdash; <a href="https://github.com/haroldalan/tamil-romanizer" target="_blank">GitHub</a></p>
     </footer>
   </div>
   <script type="module" src="./main.js"></script>
