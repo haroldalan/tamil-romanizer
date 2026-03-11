@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tamil Romanizer v2 — Live Demo</title>
   <meta name="description" content="Context-aware Tamil-to-English romanization. Try all schemes: Practical, ISO 15919, ALA-LC, ITRANS." />
-  <script type="module" crossorigin src="./assets/index-DGnrhSQv.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-m6h5LDXx.css">
+  <script type="module" crossorigin src="./assets/index-C0alFKvL.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-D6J09KsU.css">
 </head>
 
 <body>
@@ -68,8 +68,11 @@ Example:
       </div>
 
       <div id="debug-panel" class="debug-panel" style="display:none;">
-        <h3>Pipeline Debug View</h3>
-        <pre id="debug-output"></pre>
+        <div class="debug-panel-header">
+          <h3>Pipeline Debug View</h3>
+          <span class="debug-word-hint">Showing first word: <strong id="debug-word-label">—</strong></span>
+        </div>
+        <div id="debug-content" class="debug-content"></div>
       </div>
     </main>
 

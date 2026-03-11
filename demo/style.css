@@ -8,11 +8,7 @@
   --panel-bg: #ffffff;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -22,10 +18,7 @@ body {
   padding: 2rem 1rem;
 }
 
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-}
+.container { max-width: 960px; margin: 0 auto; }
 
 header {
   margin-bottom: 2rem;
@@ -40,11 +33,22 @@ h1 {
   margin-bottom: 0.25rem;
 }
 
-.subtitle {
-  color: var(--text-secondary);
-  font-size: 1.1rem;
+.version-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  padding: 0.15rem 0.5rem;
+  vertical-align: middle;
+  margin-left: 0.4rem;
+  letter-spacing: 0;
 }
 
+.subtitle { color: var(--text-secondary); font-size: 1.1rem; }
+
+/* ── Controls ────────────────────────────────────────────────────────────── */
 .controls {
   display: flex;
   flex-wrap: wrap;
@@ -56,11 +60,7 @@ h1 {
   border-radius: 6px;
 }
 
-.control-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
+.control-group { display: flex; flex-direction: column; gap: 0.25rem; }
 
 .control-group label {
   font-size: 0.875rem;
@@ -92,23 +92,12 @@ select:focus, textarea:focus {
   font-size: 0.95rem;
 }
 
-.io-panels {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+/* ── IO panels ───────────────────────────────────────────────────────────── */
+.io-panels { display: flex; flex-direction: column; gap: 1rem; }
 
-@media (min-width: 768px) {
-  .io-panels {
-    flex-direction: row;
-  }
-}
+@media (min-width: 768px) { .io-panels { flex-direction: row; } }
 
-.panel {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
+.panel { flex: 1; display: flex; flex-direction: column; }
 
 .panel label {
   font-weight: 600;
@@ -128,11 +117,159 @@ textarea {
   background-color: var(--panel-bg);
 }
 
-textarea#output-text {
-  background-color: #f3f4f6;
-  color: #374151;
+textarea#output-text { background-color: #f3f4f6; color: #374151; }
+
+/* ── Debug panel ─────────────────────────────────────────────────────────── */
+.debug-panel {
+  margin-top: 1.5rem;
+  border: 1px solid #c7d2fe;
+  border-radius: 8px;
+  background: #fafafe;
+  overflow: hidden;
 }
 
+.debug-panel-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: #eef2ff;
+  border-bottom: 1px solid #c7d2fe;
+}
+
+.debug-panel-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #3730a3;
+}
+
+.debug-word-hint {
+  font-size: 0.8rem;
+  color: #6366f1;
+}
+
+.debug-content { display: flex; flex-direction: column; gap: 0; }
+
+/* ── Layer cards ─────────────────────────────────────────────────────────── */
+.dbg-card {
+  border-bottom: 1px solid #e0e7ff;
+  padding: 0.75rem 1rem;
+}
+
+.dbg-card:last-child { border-bottom: none; }
+
+.dbg-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.dbg-layer-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: #6366f1;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.dbg-card-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #1e1b4b;
+}
+
+.dbg-card-desc {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-left: 0.25rem;
+}
+
+/* ── Chip row ─────────────────────────────────────────────────────────────── */
+.dbg-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.dbg-chip {
+  display: inline-flex;
+  flex-direction: column;
+  border: 1.5px solid;
+  border-radius: 5px;
+  overflow: hidden;
+  min-width: 2.2rem;
+  text-align: center;
+  font-size: 0.7rem;
+}
+
+.dbg-chip-top {
+  padding: 0.2rem 0.45rem;
+  font-size: 0.95rem;
+  font-family: 'Noto Sans Tamil', 'Latha', serif;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Fallback for non-Tamil tokens (ASCII) */
+.dbg-chip-top:not(:empty) { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", monospace; }
+
+.dbg-chip-bot {
+  padding: 0.15rem 0.35rem;
+  font-size: 0.6rem;
+  color: #374151;
+  background: #fff;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 8rem;
+}
+
+/* ── String display ───────────────────────────────────────────────────────── */
+.dbg-string-wrap { display: flex; align-items: center; }
+
+.dbg-string {
+  font-family: 'SFMono-Regular', Consolas, monospace;
+  font-size: 0.9rem;
+  color: #1e1b4b;
+  background: #eef2ff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #c7d2fe;
+}
+
+.dbg-string--final {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #064e3b;
+  background: #ecfdf5;
+  border-color: #6ee7b7;
+}
+
+/* ── Final row ────────────────────────────────────────────────────────────── */
+.dbg-final-wrap { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+
+.dbg-exc-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  color: #6b7280;
+}
+
+.dbg-exc-badge--hit {
+  background: #fef3c7;
+  border-color: #fcd34d;
+  color: #92400e;
+}
+
+/* ── Footer ───────────────────────────────────────────────────────────────── */
 footer {
   margin-top: 3rem;
   text-align: center;
@@ -141,3 +278,6 @@ footer {
   border-top: 1px solid var(--border-color);
   padding-top: 1rem;
 }
+
+footer a { color: var(--accent); text-decoration: none; }
+footer a:hover { text-decoration: underline; }

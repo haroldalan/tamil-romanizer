@@ -67,8 +67,11 @@ Example:
       </div>
 
       <div id="debug-panel" class="debug-panel" style="display:none;">
-        <h3>Pipeline Debug View</h3>
-        <pre id="debug-output"></pre>
+        <div class="debug-panel-header">
+          <h3>Pipeline Debug View</h3>
+          <span class="debug-word-hint">Showing first word: <strong id="debug-word-label">—</strong></span>
+        </div>
+        <div id="debug-content" class="debug-content"></div>
       </div>
     </main>
 
