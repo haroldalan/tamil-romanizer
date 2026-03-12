@@ -31,9 +31,9 @@ import type { SchemeTable } from '../types.js';
 
 // Shared vowel table — identical in both practical variants
 const PRACTICAL_VOWELS: Record<string, string> = {
-    'அ': 'a', 'ஆ': 'aa', 'இ': 'i', 'ஈ': 'ee',
-    'உ': 'u', 'ஊ': 'oo', 'எ': 'e', 'ஏ': 'ae',
-    'ஐ': 'ai', 'ஒ': 'o', 'ஓ': 'oa', 'ஔ': 'au',
+    'அ': 'a',  'ஆ': 'aa', 'இ': 'i',  'ஈ': 'ee',
+    'உ': 'u',  'ஊ': 'oo', 'எ': 'e',  'ஏ': 'ee',
+    'ஐ': 'ai', 'ஒ': 'o',  'ஓ': 'o',  'ஔ': 'au',
 };
 
 export const PRACTICAL_STANDARD: SchemeTable = {
@@ -44,7 +44,7 @@ export const PRACTICAL_STANDARD: SchemeTable = {
         'க': { DEFAULT: 'k', WORD_INITIAL: 'k', INTERVOCALIC: 'g', POST_NASAL: 'g', GEMINATE: 'kk', WORD_FINAL: 'k' },
         'ச': { DEFAULT: 's', WORD_INITIAL: 's', INTERVOCALIC: 's', POST_NASAL: 'j', GEMINATE: 'ch', WORD_FINAL: 's' },
         'ட': { DEFAULT: 't', WORD_INITIAL: 't', INTERVOCALIC: 'd', POST_NASAL: 'd', GEMINATE: 'tt', WORD_FINAL: 't' },
-        'த': { DEFAULT: 'th', WORD_INITIAL: 'th', INTERVOCALIC: 'd', POST_NASAL: 'th', GEMINATE: 'th', WORD_FINAL: 'th' },
+        'த': { DEFAULT: 'th', WORD_INITIAL: 'th', INTERVOCALIC: 'dh', POST_NASAL: 'th', GEMINATE: 'th', WORD_FINAL: 'th' },
         'ப': { DEFAULT: 'p', WORD_INITIAL: 'p', INTERVOCALIC: 'b', POST_NASAL: 'b', GEMINATE: 'pp', WORD_FINAL: 'p', FRICATIVE_MUTATED: 'f' },
         'ற': { DEFAULT: 'r', WORD_INITIAL: 'r', INTERVOCALIC: 'r', POST_NASAL: 'dr', GEMINATE: 'tr', WORD_FINAL: 'r' },
 
@@ -57,7 +57,7 @@ export const PRACTICAL_STANDARD: SchemeTable = {
         'ம': { DEFAULT: 'm', WORD_INITIAL: 'm', WORD_FINAL: 'm' },
 
         // ── Sonorants, laterals, sibilants ──────────────────────────────────
-        'ய': { DEFAULT: 'y', WORD_INITIAL: 'y', WORD_FINAL: 'y' },
+        'ய': { DEFAULT: 'y', WORD_INITIAL: 'y', WORD_FINAL: 'i' },
         'ர': { DEFAULT: 'r', WORD_INITIAL: 'r', WORD_FINAL: 'r' },
         'ல': { DEFAULT: 'l', WORD_INITIAL: 'l', WORD_FINAL: 'l' },
         'வ': { DEFAULT: 'v', WORD_INITIAL: 'v', WORD_FINAL: 'v' },

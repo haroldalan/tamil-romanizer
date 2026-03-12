@@ -12,8 +12,8 @@ const pipeline = (text: string, scheme: string) => {
 describe('Layer 5: Special Token Handler', () => {
 
     // ── Āytham resolution ─────────────────────────────────────────────────────
-    test('Āytham + ப → "f" in Practical (ஃபேன் → faen)', () => {
-        expect(pipeline('ஃபேன்', 'practical')).toBe('faen');
+    test('Āytham + ப → "f" in Practical (ஃபேன் → feen)', () => {
+        expect(pipeline('ஃபேன்', 'practical')).toBe('feen');
     });
 
     test('Āytham + ஜ → "z" in Practical (ஃஜ → za)', () => {
