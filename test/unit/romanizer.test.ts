@@ -4,8 +4,8 @@ describe('Public API: romanize()', () => {
 
     // ── Basic pipeline ─────────────────────────────────────────────────────────
     test('basic transliteration (practical)', () => {
-        // ச is WORD_INITIAL → 'ch'; ட்ட is GEMINATE → 'tt'; ம் WORD_FINAL → 'm'
-        expect(romanize('சட்டம்')).toBe('chattam');
+        // ச is WORD_INITIAL → 's'; ட்ட is GEMINATE → 'tt'; ம் WORD_FINAL → 'm'
+        expect(romanize('சட்டம்')).toBe('sattam');
     });
 
     test('returns empty string for non-string input', () => {
@@ -36,10 +36,9 @@ describe('Public API: romanize()', () => {
     });
 
     test('exception trie OFF: சென்னை algorithmic', () => {
-        // Algorithmic: ச WORD_INITIAL = 'ch', so result starts with 'ch'.
-        // The exception trie overrides to 'Chennai'. With exceptions:false,
-        // the algorithmic result is also 'chennai' (ch+e+n+n+ai lowercased).
-        expect(romanize('சென்னை', { exceptions: false })).toBe('chennai');
+        // Algorithmic: ச WORD_INITIAL = 's' (new scheme). With exceptions:false,
+        // the algorithmic result is 'sennai' (s+e+n+n+ai). The trie overrides to 'chennai'.
+        expect(romanize('சென்னை', { exceptions: false })).toBe('sennai');
     });
 
     test('exception trie ON: full sentence with loanwords', () => {
@@ -102,9 +101,9 @@ describe('Public API: romanize()', () => {
     });
 
     test('ஸ்ரீரங்கம் → algorithmic output (exceptions:false)', () => {
-        // Algorithmic: ஸ்+ரீ conjunct → 'sree'; ரங்கம் → ranggam. Full: 'sreeranggam'.
-        // Use exception trie ON to get 'Srirangam' via the exception dictionary.
-        expect(romanize('ஸ்ரீரங்கம்', { exceptions: false })).toBe('sreeranggam');
+        // Algorithmic: ஸ்+ரீ conjunct → 'sree'; ங்=DEFAULT='n' (coda); க POST_NASAL='g'; ம்='m'.
+        // Full: 'sreerangam'. Use exception trie ON to get 'Srirangam' via the dictionary.
+        expect(romanize('ஸ்ரீரங்கம்', { exceptions: false })).toBe('sreerangam');
     });
 });
 

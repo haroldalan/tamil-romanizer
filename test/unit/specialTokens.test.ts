@@ -34,10 +34,10 @@ describe('Layer 5: Special Token Handler', () => {
         expect(pipeline('பக்ஷி', 'practical')).toBe('pakshi');
     });
 
-    test('ஸ்ரீரங்கம் → sreeranggam in Practical (algorithmic)', () => {
-        // Algorithmic: ஸ்+ர conjunct → 'sr', ீ=ee → 'sree'. Then ர=r, ங்=ng coda, க POST_NASAL=g, ம்=m.
-        // → 'sreeranggam'. Use exception entry for 'Srirangam' in production.
-        expect(pipeline('ஸ்ரீரங்கம்', 'practical')).toBe('sreeranggam');
+    test('ஸ்ரீரங்கம் → sreerangam in Practical (algorithmic)', () => {
+        // Algorithmic: ஸ்+ர conjunct → 'sree'. ர=r, ங் DEFAULT(virama coda)='n', க POST_NASAL='g', ம்='m'.
+        // → 'sreerangam'. Use exception entry for 'Srirangam' in production.
+        expect(pipeline('ஸ்ரீரங்கம்', 'practical')).toBe('sreerangam');
     });
 
     test('க்ஷ → kṣ in ISO 15919 (no cleanup applied)', () => {

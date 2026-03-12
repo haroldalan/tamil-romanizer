@@ -45,11 +45,10 @@ describe('Layer 4: Scheme Resolver', () => {
 
     // ── Practical / Standard ──────────────────────────────────────────────────
     describe('Practical/Standard', () => {
-        test('சட்டம் → chattam (ch=WORD_INITIAL, tt=GEMINATE ட)', () => {
-            // ச is WORD_INITIAL → 'ch'. ட்ட is GEMINATE → 'tt'. So: ch+a+tt+a+m = 'chattam'.
-            // 'sattam' would only occur if ச mapped DEFAULT→'s' and the first token
-            // were not WORD_INITIAL — but it is. Use exceptions:false + lowercase.
-            expect(pipeline('சட்டம்', 'practical')).toBe('chattam');
+        test('சட்டம் → sattam (s=WORD_INITIAL, tt=GEMINATE ட)', () => {
+            // ச WORD_INITIAL → 's' (Tanglish practical convention). ட்ட GEMINATE → 'tt'.
+            // 'chattam' is available via custom table: { 'ச': 'ch' } — see romanizer.test.ts.
+            expect(pipeline('சட்டம்', 'practical')).toBe('sattam');
         });
 
         test('படம் → padam (intervocalic ட → d)', () => {
@@ -78,11 +77,10 @@ describe('Layer 4: Scheme Resolver', () => {
             expect(pipeline('பக்ஷி', 'practical')).toBe('pakshi');
         });
 
-        test('ஸ்ரீரங்கம் → sreeranggam (practical, algorithmic ஸ்ரீ=sree, ங்+க=ngg)', () => {
-            // Algorithmic: ஸ்+ர conjunct='sr', ீ=ee → 'sree'. ரங்கம்: ர=r, ங்=ng, க POST_NASAL=g, ம்=m.
-            // → sree + ranggam... wait: ர is INTERVOCALIC after sr+ee → r; ங்=DEFAULT='ng';
-            //க POST_NASAL after ங் = 'g'. → sree+r+ang+g+am = 'sreeranggam'.
-            expect(pipeline('ஸ்ரீரங்கம்', 'practical')).toBe('sreeranggam');
+        test('ஸ்ரீரங்கம் → sreerangam (practical, algorithmic ஸ்ரீ=sree, ங்=n coda, க POST_NASAL=g)', () => {
+            // Algorithmic: ஸ்+ர conjunct → 'sr', ீ=ee → 'sree'. Then ர=r, ங் DEFAULT(virama)='n';
+            // க POST_NASAL='g', ம்='m'. → sree+r+an+g+am = 'sreerangam'.
+            expect(pipeline('ஸ்ரீரங்கம்', 'practical')).toBe('sreerangam');
         });
 
         test('Other / numeral / English passes through', () => {

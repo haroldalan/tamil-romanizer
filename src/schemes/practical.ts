@@ -17,8 +17,12 @@
  *    ட POST_NASAL → 'nd' (more phonetically accurate for ண்ட clusters)
  *    த INTERVOCALIC → 'dh' (marks aspirate distinction)
  *
- * GEMINATE encoding: a single string where [0] = virama-half, [1:] = base-half.
- *   Example: 'chch' → virama outputs 'c', base outputs 'hch' → combined 'chch'.
+ * GEMINATE encoding: the full string is emitted once by the base-half token.
+ * The virama-half token is silent (produces empty string).
+ * This follows Tanglish convention: doubled consonant appears once — 'paarthaa', not 'paartthaa'.
+ *   Example: GEMINATE 'th' for த → virama outputs '', base outputs 'th' → combined 'th'.
+ *            GEMINATE 'tth' for த → virama outputs '', base outputs 'tth' → combined 'tth'.
+ *            GEMINATE 'kk' for க → virama outputs '', base outputs 'kk' → combined 'kk'.
  *
  * WORD_FINAL is now explicitly defined for all consonants (previously missing,
  * causing DEFAULT fallback which could mismatch in some edge cases).
@@ -38,14 +42,14 @@ export const PRACTICAL_STANDARD: SchemeTable = {
 
         // ── Stop consonants with full allophone tables ──────────────────────
         'க': { DEFAULT: 'k', WORD_INITIAL: 'k', INTERVOCALIC: 'g', POST_NASAL: 'g', GEMINATE: 'kk', WORD_FINAL: 'k' },
-        'ச': { DEFAULT: 's', WORD_INITIAL: 'ch', INTERVOCALIC: 's', POST_NASAL: 'j', GEMINATE: 'chch', WORD_FINAL: 'ch' },
+        'ச': { DEFAULT: 's', WORD_INITIAL: 's', INTERVOCALIC: 's', POST_NASAL: 'j', GEMINATE: 'ch', WORD_FINAL: 's' },
         'ட': { DEFAULT: 't', WORD_INITIAL: 't', INTERVOCALIC: 'd', POST_NASAL: 'd', GEMINATE: 'tt', WORD_FINAL: 't' },
-        'த': { DEFAULT: 'th', WORD_INITIAL: 'th', INTERVOCALIC: 'd', POST_NASAL: 'dh', GEMINATE: 'tth', WORD_FINAL: 'th' },
+        'த': { DEFAULT: 'th', WORD_INITIAL: 'th', INTERVOCALIC: 'd', POST_NASAL: 'th', GEMINATE: 'th', WORD_FINAL: 'th' },
         'ப': { DEFAULT: 'p', WORD_INITIAL: 'p', INTERVOCALIC: 'b', POST_NASAL: 'b', GEMINATE: 'pp', WORD_FINAL: 'p', FRICATIVE_MUTATED: 'f' },
         'ற': { DEFAULT: 'r', WORD_INITIAL: 'r', INTERVOCALIC: 'r', POST_NASAL: 'dr', GEMINATE: 'tr', WORD_FINAL: 'r' },
 
         // ── Nasal consonants ────────────────────────────────────────────────
-        'ங': { DEFAULT: 'ng', WORD_INITIAL: 'ng', WORD_FINAL: 'ng' },
+        'ங': { DEFAULT: 'n', WORD_INITIAL: 'ng', WORD_FINAL: 'n' },
         'ஞ': { DEFAULT: 'nj', WORD_INITIAL: 'gn', WORD_FINAL: 'n', GEMINATE: 'nn' },
         'ண': { DEFAULT: 'n', WORD_INITIAL: 'n', WORD_FINAL: 'n' },
         'ந': { DEFAULT: 'n', WORD_INITIAL: 'n', WORD_FINAL: 'n' },

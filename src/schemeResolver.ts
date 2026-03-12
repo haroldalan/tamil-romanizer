@@ -101,10 +101,9 @@ function resolveConsonant(
     if (contextTag === 'GEMINATE') {
         const gemStr = consMap['GEMINATE'];
         if (gemStr) {
-            // Virama half gets the first character; base half gets the remainder
-            return token.modifierType === 'virama'
-                ? gemStr.charAt(0)
-                : gemStr.slice(1);
+            // Virama half is silent (empty); base half carries the full geminate string.
+            // Tanglish convention: doubled consonant written once — 'paartthaa' → 'paarthaa'.
+            return token.modifierType === 'virama' ? '' : gemStr;
         }
     }
 
