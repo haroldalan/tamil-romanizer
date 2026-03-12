@@ -59,8 +59,8 @@ describe('Layer 4: Scheme Resolver', () => {
             expect(pipeline('அறம்', 'practical')).toBe('aram');
         });
 
-        test('நன்றி → nandri (post-nasal ற → dr)', () => {
-            expect(pipeline('நன்றி', 'practical')).toBe('nandri');
+        test('நன்றி → nanri (post-nasal ற → r, Tanglish convention)', () => {
+            expect(pipeline('நன்றி', 'practical')).toBe('nanri');
         });
 
         test('பஞ்சம் → panjam (ஞ் coda=n, ச POST_NASAL=j)', () => {

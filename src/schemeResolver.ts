@@ -71,7 +71,16 @@ function resolveVowel(token: ContextToken, scheme: typeof ISO15919): string {
     }
     if (token.modifierType === 'vowel_sign') {
         const baseVowel = vowelSignToBase[token.modifier];
-        return baseVowel ? (scheme.vowels[baseVowel] ?? '') : '';
+        if (!baseVowel) return '';
+        // WORD_FINAL ஆ vowel sign shortens to 'a' in practical Tanglish.
+        // mavandaa → mavanda, yamandaa → yamanda, thodudaa → thoduda.
+        // Uses wordFinal flag (not contextTag) so POST_NASAL/INTERVOCALIC
+        // word-end tokens are correctly shortened too.
+        if (token.modifier === '\u0BBE' && token.wordFinal) {
+            const full = scheme.vowels[baseVowel] ?? '';
+            return full === 'aa' ? 'a' : full;
+        }
+        return scheme.vowels[baseVowel] ?? '';
     }
     // virama → no vowel; none → OTHER, shouldn't reach here
     return '';

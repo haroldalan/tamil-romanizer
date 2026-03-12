@@ -47,6 +47,7 @@ export interface DecomposedToken extends RawToken {
 
 export interface ContextToken extends DecomposedToken {
     contextTag: ContextTag;
+    wordFinal: boolean;  // true when this token is the last consonant before a word boundary
 }
 
 export interface ResolvedToken extends ContextToken {

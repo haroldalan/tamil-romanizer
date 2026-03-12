@@ -69,19 +69,18 @@ export function analyzeContext(tokens: DecomposedToken[]): ContextToken[] {
             token.type === tokenTypes.CONSONANT_VOWEL_SIGN;
 
         if (!isConsonantType) {
-            return { ...token, contextTag: 'DEFAULT' as ContextTag };
+            return { ...token, contextTag: 'DEFAULT' as ContextTag, wordFinal: false };
         }
 
         const prev = tokens[i - 1] as DecomposedToken | undefined;
         const next = tokens[i + 1] as DecomposedToken | undefined;
 
+        // ── Word-final flag (independent of contextTag) ───────────────────────
+        const wordFinal = isSeparator(next);
+
         // ── Priority order (descending) ────────────────────────────────────────
 
-        // 0. GRANTHA_CONJUNCT_HEAD — MUST be checked before WORD_INITIAL because
-        //    a word-initial conjunct (e.g. ஸ்ரீரங்கம், க்ஷண்டம்) is simultaneously
-        //    word-initial AND a conjunct head. GRANTHA_CONJUNCT_HEAD takes priority
-        //    so that Layer 4 can consume both tokens as a combined unit.
-        //    Only fires for the HEAD — the partner token receives DEFAULT (consumed by Layer 4).
+        // 0. GRANTHA_CONJUNCT_HEAD
         const isConjunctHead =
             token.modifierType === 'virama' &&
             next !== undefined &&
@@ -89,20 +88,16 @@ export function analyzeContext(tokens: DecomposedToken[]): ContextToken[] {
                 next.type === tokenTypes.CONSONANT_VOWEL_SIGN) &&
             (GRANTHA_CONJUNCT_PAIRS.get(token.base)?.has(next.base) ?? false);
         if (isConjunctHead) {
-            return { ...token, contextTag: 'GRANTHA_CONJUNCT_HEAD' as ContextTag };
+            return { ...token, contextTag: 'GRANTHA_CONJUNCT_HEAD' as ContextTag, wordFinal };
         }
 
-        // 1. WORD_INITIAL: first token, or immediately follows a separator
+        // 1. WORD_INITIAL
         const isWordInitial = i === 0 || isSeparator(prev);
         if (isWordInitial) {
-            return { ...token, contextTag: 'WORD_INITIAL' as ContextTag };
+            return { ...token, contextTag: 'WORD_INITIAL' as ContextTag, wordFinal };
         }
 
-        // Word-final: last token, or immediately precedes a separator
-        const isWordFinal = isSeparator(next);
-
-        // 2. GEMINATE — virama half AND base half
-        //    Pattern: [C + virama] followed by same [C + vowel/bare]
+        // 2. GEMINATE
         const isViramaHalf =
             token.modifierType === 'virama' &&
             next !== undefined &&
@@ -112,42 +107,41 @@ export function analyzeContext(tokens: DecomposedToken[]): ContextToken[] {
             prev.modifierType === 'virama' &&
             prev.base === token.base;
         if (isViramaHalf || isBaseHalf) {
-            return { ...token, contextTag: 'GEMINATE' as ContextTag };
+            return { ...token, contextTag: 'GEMINATE' as ContextTag, wordFinal };
         }
 
-        // 3. POST_NASAL — preceded by a nasal in virama form
+        // 3. POST_NASAL
         const isPostNasal =
             prev !== undefined &&
             prev.modifierType === 'virama' &&
             NASALS.has(prev.base);
         if (isPostNasal) {
-            return { ...token, contextTag: 'POST_NASAL' as ContextTag };
+            return { ...token, contextTag: 'POST_NASAL' as ContextTag, wordFinal };
         }
 
-        // 4. FRICATIVE_MUTATED — ப or ஜ immediately following an Āytham (ஃ)
+        // 4. FRICATIVE_MUTATED
         const isFricativeMutated =
             prev !== undefined &&
             prev.type === tokenTypes.AYTHAM &&
             (token.base === 'ப' || token.base === 'ஜ');
         if (isFricativeMutated) {
-            return { ...token, contextTag: 'FRICATIVE_MUTATED' as ContextTag };
+            return { ...token, contextTag: 'FRICATIVE_MUTATED' as ContextTag, wordFinal };
         }
 
-        // 5. INTERVOCALIC — preceded by a vowel-carrying token AND own modifier ≠ virama
-        //    (The following token is irrelevant — see 2nd professor feedback correction)
+        // 5. INTERVOCALIC
         const isIntervocalic =
             carriesVowel(prev) &&
             token.modifierType !== 'virama';
         if (isIntervocalic) {
-            return { ...token, contextTag: 'INTERVOCALIC' as ContextTag };
+            return { ...token, contextTag: 'INTERVOCALIC' as ContextTag, wordFinal };
         }
 
         // 6. WORD_FINAL
-        if (isWordFinal) {
-            return { ...token, contextTag: 'WORD_FINAL' as ContextTag };
+        if (wordFinal) {
+            return { ...token, contextTag: 'WORD_FINAL' as ContextTag, wordFinal };
         }
 
         // 7. DEFAULT fallback
-        return { ...token, contextTag: 'DEFAULT' as ContextTag };
+        return { ...token, contextTag: 'DEFAULT' as ContextTag, wordFinal };
     });
 }
