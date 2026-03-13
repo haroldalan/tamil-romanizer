@@ -65,6 +65,7 @@ export const SUFFIX_TABLE: SuffixEntry[] = [
     { tamil: 'கள்', roman: 'kal' },
 
     // ── Nominal / Enclitic ────────────────────────────────────────────────────
+    { tamil: 'மா', roman: 'ma' }, // interrogative / vocative
     { tamil: 'தான்', roman: 'thaan' }, // emphatic
     { tamil: 'ம்', roman: 'm' }, // conjunctive / "and"
     { tamil: 'ஓ', roman: 'o' }, // question / disjunction

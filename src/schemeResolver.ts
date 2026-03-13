@@ -74,11 +74,11 @@ function resolveVowel(token: ContextToken, scheme: typeof ISO15919): string {
         if (!baseVowel) return '';
 
         // Practical Tanglish vowel sign overrides:
-        // ஆ sign (ா U+0BBE) → 'a' everywhere EXCEPT WORD_INITIAL syllables.
-        //   WORD_INITIAL keeps 'aa': paartheenee (ப+ா WORD_INITIAL), maarudham, kaanthaazhi.
-        //   All others shorten: soodana (ட INTERVOCALIC+ா), mannarellam (ல GEMINATE+ா),
-        //   mavanda (ட POST_NASAL wordFinal), yamanda (ட WORD_FINAL).
-        if (token.modifier === '\u0BBE' && token.contextTag !== 'WORD_INITIAL') {
+        // ஆ sign (ா U+0BBE) → 'a' everywhere EXCEPT WORD_INITIAL syllables, and 'ச' stems.
+        //   WORD_INITIAL keeps 'aa': paartheenee.
+        //   'ச' base keeps 'aa': vandhaachi, undaachu (the ச்+ச geminate sound retains length before i/u).
+        //   All others shorten: soodana, mavanda (ட POST_NASAL wordFinal).
+        if (token.modifier === '\u0BBE' && token.contextTag !== 'WORD_INITIAL' && token.base !== 'ச') {
             const full = scheme.vowels[baseVowel] ?? '';
             return full === 'aa' ? 'a' : full;
         }

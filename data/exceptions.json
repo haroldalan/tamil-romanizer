@@ -388,5 +388,23 @@
         "romanStem": "Thalapathy",
         "oblique": null,
         "forceCasing": false
+    },
+    "தஞ்சாவூர்": {
+        "roman": "Thanjavur",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "பாட்ஷா": {
+        "roman": "Baadsha",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
+    },
+    "பூஜா": {
+        "roman": "Pooja",
+        "romanStem": null,
+        "oblique": null,
+        "forceCasing": false
     }
 }
