@@ -72,18 +72,35 @@ function resolveVowel(token: ContextToken, scheme: typeof ISO15919): string {
     if (token.modifierType === 'vowel_sign') {
         const baseVowel = vowelSignToBase[token.modifier];
         if (!baseVowel) return '';
-        // WORD_FINAL ஆ vowel sign shortens to 'a' in practical Tanglish.
-        // mavandaa → mavanda, yamandaa → yamanda, thodudaa → thoduda.
-        // Uses wordFinal flag (not contextTag) so POST_NASAL/INTERVOCALIC
-        // word-end tokens are correctly shortened too.
-        if (token.modifier === '\u0BBE' && token.wordFinal) {
+
+        // Practical Tanglish vowel sign overrides:
+        // ஆ sign (ா U+0BBE) → 'a' everywhere EXCEPT WORD_INITIAL syllables.
+        //   WORD_INITIAL keeps 'aa': paartheenee (ப+ா WORD_INITIAL), maarudham, kaanthaazhi.
+        //   All others shorten: soodana (ட INTERVOCALIC+ா), mannarellam (ல GEMINATE+ா),
+        //   mavanda (ட POST_NASAL wordFinal), yamanda (ட WORD_FINAL).
+        if (token.modifier === '\u0BBE' && token.contextTag !== 'WORD_INITIAL') {
             const full = scheme.vowels[baseVowel] ?? '';
             return full === 'aa' ? 'a' : full;
         }
+
+        // ஏ sign (ே U+0BC7) → always 'e' (short Tanglish form).
+        //   paarthenee not paartheenee, medu not meedu, kekkuriye not keekkuriyee.
+        if (token.modifier === '\u0BC7') {
+            return 'e';
+        }
+
         return scheme.vowels[baseVowel] ?? '';
     }
     // virama → no vowel; none → OTHER, shouldn't reach here
     return '';
+}
+
+// Standalone vowel letter resolution (used in the main loop for VOWEL tokens).
+// Practical: standalone ஏ letter → 'ae' (not 'e', which is the vowel sign form).
+// Other schemes (itrans 'E', ISO 'ē') use their table value unchanged.
+function resolveStandaloneVowel(base: string, scheme: typeof ISO15919): string {
+    if (base === 'ஏ' && scheme.vowels['ஏ'] === 'ee') return 'ae';
+    return scheme.vowels[base] ?? base;
 }
 
 // ── Consonant resolution helper ───────────────────────────────────────────────
@@ -165,7 +182,7 @@ export function resolveScheme(
         }
 
         if (token.type === tokenTypes.VOWEL) {
-            const vowelStr = scheme.vowels[token.base] ?? token.base;
+            const vowelStr = resolveStandaloneVowel(token.base, scheme);
             resolved.push({ ...token, romanized: vowelStr });
             i++;
             continue;
