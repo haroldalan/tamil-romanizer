@@ -83,10 +83,11 @@ function resolveVowel(token: ContextToken, scheme: typeof ISO15919): string {
             return full === 'aa' ? 'a' : full;
         }
 
-        // ஏ sign (ே U+0BC7) → always 'e' (short Tanglish form).
-        //   paarthenee not paartheenee, medu not meedu, kekkuriye not keekkuriyee.
+        // ஏ sign (ே U+0BC7):
+        //   WORD_INITIAL → 'ae': kaelu (கேளு), paechu (பேச்சு) — full long Ē sound at word start.
+        //   Other positions → 'e': paarthenee, medu, kekkuriye — Tanglish short mid-word form.
         if (token.modifier === '\u0BC7') {
-            return 'e';
+            return token.contextTag === 'WORD_INITIAL' ? 'ae' : 'e';
         }
 
         return scheme.vowels[baseVowel] ?? '';

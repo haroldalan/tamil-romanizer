@@ -69,8 +69,8 @@ describe('Layer 4: Scheme Resolver', () => {
             expect(pipeline('பஞ்சம்', 'practical')).toBe('panjam');
         });
 
-        test('அதனால் → adhanal (த INTERVOCALIC→dh; ஆ non-WORD_INITIAL sign→a)', () => {
-            expect(pipeline('அதனால்', 'practical')).toBe('adhanal');
+        test('அதனால் → athanal (த INTERVOCALIC→th; ஆ non-WORD_INITIAL sign→a)', () => {
+            expect(pipeline('அதனால்', 'practical')).toBe('athanal');
         });
 
         test('பம்பரம் → pambaram (initial p, post-nasal b)', () => {

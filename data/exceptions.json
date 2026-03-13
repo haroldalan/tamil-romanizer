@@ -382,5 +382,11 @@
         "romanStem": null,
         "oblique": null,
         "forceCasing": false
+    },
+    "தளபதி": {
+        "roman": "Thalapathy",
+        "romanStem": "Thalapathy",
+        "oblique": null,
+        "forceCasing": false
     }
 }

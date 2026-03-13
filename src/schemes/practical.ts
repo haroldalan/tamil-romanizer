@@ -44,7 +44,7 @@ export const PRACTICAL_STANDARD: SchemeTable = {
         'க': { DEFAULT: 'k', WORD_INITIAL: 'k', INTERVOCALIC: 'g', POST_NASAL: 'g', GEMINATE: 'kk', WORD_FINAL: 'k' },
         'ச': { DEFAULT: 's', WORD_INITIAL: 's', INTERVOCALIC: 's', POST_NASAL: 'j', GEMINATE: 'ch', WORD_FINAL: 's' },
         'ட': { DEFAULT: 't', WORD_INITIAL: 't', INTERVOCALIC: 'd', POST_NASAL: 'd', GEMINATE: 'tt', WORD_FINAL: 't' },
-        'த': { DEFAULT: 'th', WORD_INITIAL: 'th', INTERVOCALIC: 'dh', POST_NASAL: 'dh', GEMINATE: 'th', WORD_FINAL: 'th' },
+        'த': { DEFAULT: 'th', WORD_INITIAL: 'th', INTERVOCALIC: 'th', POST_NASAL: 'dh', GEMINATE: 'th', WORD_FINAL: 'th' },
         'ப': { DEFAULT: 'p', WORD_INITIAL: 'p', INTERVOCALIC: 'b', POST_NASAL: 'b', GEMINATE: 'pp', WORD_FINAL: 'p', FRICATIVE_MUTATED: 'f' },
         'ற': { DEFAULT: 'r', WORD_INITIAL: 'r', INTERVOCALIC: 'r', POST_NASAL: 'r', GEMINATE: 'tr', WORD_FINAL: 'r' },
 
